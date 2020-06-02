@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BodycarePartner
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header.header
+      .header__title
+        = link_to "Body Care Partner", root_path, class: "header__title--text"
+      .header__right
+        - if user_signed_in?
+          = link_to current_user.nickname, user_path(current_user), class: "header__right--btn"
+          = link_to "新規投稿", new_post_path, class: "header__right--btn"
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
+        - else
+          = link_to "ログイン", new_user_session_path, class: "header__right--btn"
+          = link_to "新規登録", new_user_registration_path, class: "header__right--btn"
+    .contact
+      .contact__reservation
+        = link_to "ご予約"
+      .contact__inquiry
+        = link_to "お問い合わせ"
+      .contact__map
+        = link_to "アクセス"
+    .contents
+
+      = yield
