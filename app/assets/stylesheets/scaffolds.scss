@@ -21,9 +21,11 @@ pre {
 
 a {
   color: #000;
+  line-height: 35px;
 
   &:visited {
-    color: #666;
+    color: black;
+    // color: #666;
   }
 
   &:hover {
