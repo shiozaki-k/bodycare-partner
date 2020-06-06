@@ -26,6 +26,11 @@ $(function () {
   };
   $(document).on('turbolinks:load', function () {
     eventCalendar();
+  });
+  $(document).on('turbolinks:before-cache', clearCalendar);
+
+  $('#calendar').fullCalendar({
+    events: '/events.json'
+  });
 });
-$(document).on('turbolinks:before-cache', clearCalendar);
-});
+
