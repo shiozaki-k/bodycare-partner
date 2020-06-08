@@ -1,7 +1,7 @@
-%h1 Editing event
-
-= render 'form'
-
-= link_to 'Show', @event
-\|
-= link_to 'Back', events_path
+%h1 予約変更
+.event_form
+  = render 'form'
+.btn_back
+  = link_to '予約一覧', @event
+  \|
+  = link_to '戻る', events_path
