@@ -6,4 +6,5 @@ class User < ApplicationRecord
          
   has_many :posts
   has_many :reservations, dependent: :destroy
+  has_many :events
 end
