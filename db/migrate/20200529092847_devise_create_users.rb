@@ -14,7 +14,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
     t.integer :birth_year,        null: false
     t.integer :birth_month,       null: false 
     t.integer :birth_day,         null: false
-    t.string :phone_number,      unique: true, default: ""
+    t.string :phone_number,      null: false, unique: true、 default: ""
+    t.integer :postal_code,        null: false
+    t.string :prefectures,         null: false, default: ""
+    t.string :city_name,           null: false, default: ""
+    t.string :street_number,       null: false, default: ""
+    t.string :building_name,       default: ""
     #   ## Database authenticatable
     #   t.string :email,              null: false, default: ""
     #   t.string :encrypted_password, null: false, default: ""

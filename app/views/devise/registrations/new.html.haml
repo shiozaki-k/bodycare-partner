@@ -8,36 +8,42 @@
       %span.plate-required 必須
       = f.text_field :nickname, autofocus: true, placeholder: "例）フリマ太郎"
       .field
+        %br/
         = f.label :メールアドレス
         %span.plate-required 必須
         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
         .field
+          %br/
           = f.label :パスワード
             - if @minimum_password_length
           %span.plate-required 必須
-          %br/
           = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字"
           .field
             = f.label :パスワード（確認用）
             %span.plate-required 必須
             = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "コピー・貼り付けはしないでください"
             .field
+              %br/
               = f.label :お名前
               %span.plate-required 必須
-              %br/
               = f.text_field :last_name, autofocus: true, placeholder: "例) 大阪"
+              %br/
+              %span.plate-required 必須
               = f.text_field :first_name, autofocus: true, placeholder: "例) 花子"
               .field
+                %br/
                 = f.label :ふりがな
                 %span.plate-required 必須
-                %br/
                 = f.text_field :last_furigana, autofocus: true, placeholder: "例) おおさか"
+                %br/
+                %span.plate-required 必須
                 = f.text_field :first_furigana, autofocus: true, placeholder: "例) はなこ"
                 .field
                   = f.label :性別
-                  %span.plate-required 必須
+                  %br/
                   %span.description-of-input 選択してください。
                   %br/
+                  %span.plate-required 必須
                   = f.select :gender,       |
                     [                       |
                     ["男","1"],             |
@@ -45,10 +51,11 @@
                     ],                      |
                     autofocus: true         |
                   .field
+                    %br/
                     = f.label :生年月日
-                    %span.plate-required 必須
                     %span.description-of-input 選択してください。
                     %br/
+                    %span.plate-required 必須
                     = f.select :birth_year, |
                       [                     |
                       ["2020","2020"],      |
@@ -170,6 +177,8 @@
                       ],                    |
                       autofocus: true       |
                     %span.fixed-text-year-month-date 年
+                    %br/
+                    %span.plate-required 必須
                     = f.select :birth_month, |
                       [                      |
                       ["1","1"],             |
@@ -187,6 +196,8 @@
                       ],                     |
                       autofocus: true        |
                     %span.fixed-text-year-month-date 月
+                    %br/
+                    %span.plate-required 必須
                     = f.select :birth_day, |
                       [                    |
                       ["1","1"],           |
@@ -224,21 +235,26 @@
                       autofocus: true      |
                     %span.fixed-text-year-month-date 日
                     .field
+                      %br/
                       = f.label :電話番号
-                      %span.plate-required 必須
                       %span.description-of-input ハイフン"ー"は不要です。
+                      %br/
+                      %span.plate-required 必須
                       = f.telephone_field :phone_number, autocomplete: true
                       = f.fields_for :address do |f|
                         .field
-                          = f.label :郵便番号
-                          %span.plate-required 必須
                           %br/
+                          = f.label :郵便番号
+                          %span.description-of-input ハイフン"ー"は不要です。
+                          %br/
+                          %span.plate-required 必須
                           = f.text_field :postal_code, autocomplete: true, placeholder: "12345678"
                           .field
+                            %br/
                             = f.label :都道府県
-                            %span.plate-required 必須
                             %span.description-of-input 選択してください。
                             %br/
+                            %span.plate-required 必須
                             = f.select :prefectures, |
                               [                       |
                               ["大阪府","大阪府"],   |
@@ -246,19 +262,19 @@
                               ],                   |
                               autofocus: true      |
                             .field
+                              %br/
                               = f.label :市区町村
                               %span.plate-required 必須
-                              %br/
                               = f.text_field :city_name, autocomplete: true, placeholder: "大阪市中央区"
                               .field
+                                %br/
                                 = f.label :番地
                                 %span.plate-required 必須
-                                %br/
                                 = f.text_field :street_number, autocomplete: true, placeholder: "難波５丁目１ー１６"
                                 .field
+                                  %br/
                                   = f.label :建物名・部屋番号
                                   %span.plate-option 任意
-                                  %br/
-                                  = f.text_field :building_name, autocomplete: true, placeholder:  "なんばスカイオ15階"
+                                  = f.text_field :building_name, autocomplete: true, placeholder:  "マンション101"
                                   .field
                                     = f.submit "確認画面へ進む", class: "btn-next"
