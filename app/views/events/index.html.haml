@@ -1,0 +1,28 @@
+%h1 予約一覧
+%table
+  %thead
+    %tr
+      %th User
+      %th Title
+      %th Description
+      %th Start date
+      %th
+      %th
+      %th
+
+  %tbody
+    - @events.each do |event|
+      %tr 
+        %td= event.nickname
+        %td= event.title
+        %td= event.description
+        %td= event.start_date
+        %td= link_to '詳細', event
+        %td= link_to '編集', edit_event_path(event)
+        %td= link_to '削除', event, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+.calender_events
+  <div id="calendar"></div>
+
+= link_to 'New Event', new_event_path
